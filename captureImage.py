@@ -2,7 +2,12 @@ import time
 from subprocess import call
 import os, os.path
 import shutil
+import RPi.GPIO as GPIO
+
 from datetime import datetime
+
+
+
 
 
 #The amperage of the webcam is not enough, it restarts, works 1-10 times.
@@ -41,4 +46,6 @@ destination = '/home/pi/Desktop/Project571/sendToDropbox/' + newFileName
 shutil.copy2(source, destination) # complete target filename given
 
 os.remove(source)
+
+print "Finished Capturing Image"
 
