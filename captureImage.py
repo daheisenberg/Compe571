@@ -7,9 +7,6 @@ import RPi.GPIO as GPIO
 from datetime import datetime
 
 
-
-
-
 #The amperage of the webcam is not enough, it restarts, works 1-10 times.
 #delete previous avi
 #bad idea erases everything!
