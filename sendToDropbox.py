@@ -1,5 +1,7 @@
 import dropbox
 
+import datetime
+
 import os
 
 
@@ -23,9 +25,11 @@ if numberOfFiles > 2:
 
 		f.close()
 
+		logText = fileToOpen + " on dropbox is " + sendFile + " on: " + str(datetime.datetime.now()) + " \n"		
+		
 		
 		with open('sendToDropbox/uploadLog.txt','a') as fo:
-			fo.write("what\n")
+			fo.write(logText)
 
 
 

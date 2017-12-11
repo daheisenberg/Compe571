@@ -30,8 +30,8 @@ for i in xrange(1,10):
 	#for image only
 	#call(["fswebcam", "-d", "/dev/video0", "-r", "1280x720", "--no-banner", "thefile.jpg"])
 	
-	call(["avconv", "-t", "3",  "-f",  "video4linux2" , "-i", "/dev/video0", newFileName])
-		
+	call(["avconv", "-t", "5",  "-f",  "video4linux2" , "-i", "/dev/video0", newFileName])
+	os.system('clear')							#this can be thrown as background process	
 	time.sleep(1)
 
 
