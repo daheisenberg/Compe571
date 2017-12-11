@@ -57,13 +57,13 @@ while True:
 
 	i = 0
 	j = 0
-	i= GPIO.input(37)		#left
-	j= GPIO.input(12)		#right
+	i= GPIO.input(12)		#left
+	j= GPIO.input(37)		#right
 	buttonPressed =GPIO.input(13)
 	
 #there is some noise on the sensor, it is going to record with a filter only.
-
-	if i == 1 and filterForLeft < 3:		
+ 
+	if i == 1 and filterForLeft < 2:		
 		#print str(i) + "what"
 		filterForLeft = filterForLeft + 1
 		print "maybe i detected something on the left"
@@ -98,11 +98,11 @@ while True:
 		GPIO.output(3,0)
 		time.sleep(1)
 	
-	if filterForLeft > 2 :
+	if filterForLeft > 1 :
 		print "intruder On left" , i
 		GPIO.output(3,1)
 		moveLeft()
-		os.system("python captureImage.py") 		#this command has to wait to be finished
+		#os.system("python captureImage.py") 		#this command has to wait to be finished
 		os.system('clear')							#this can be thrown as background process
 		avantiDropbox()
 		filterForLeft = 0
@@ -123,7 +123,7 @@ while True:
 		print "intruders On right" , j
 		GPIO.output(5,1)
 		moveRight()
-		os.system("python captureImage.py")
+		#os.system("python captureImage.py")
 		os.system('clear')							#this can be thrown as background process
 		avantiDropbox()
 		filterForRight = 0
@@ -138,7 +138,7 @@ while True:
 	if buttonPressed == 1:
 		print "buttonPressed"
 		buttonStatus = not buttonStatus
-		moveCenter()
+		#moveCenter()
 		time.sleep(3)
 			
 		

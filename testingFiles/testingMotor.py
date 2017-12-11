@@ -20,7 +20,7 @@ try:
 			time.sleep(1)
 			#right
 			p.ChangeDutyCycle(2.5)
-			 time.sleep(1)
+			time.sleep(1)
 			
 except KeyboardInterrupt:
 	GPIO.cleanup()
