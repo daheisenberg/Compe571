@@ -23,7 +23,7 @@ p.start(7.5)
 
 def avantiDropbox():
 	print "Avanti with dropbox"
-	p = subprocess.Popen([sys.executable, '/home/pi/Desktop/Project571/sendToDropbox.py'],stdout = subprocess.PIPE, stderr = subprocess.STDOUT)
+	p1 = subprocess.Popen([sys.executable, '/home/pi/Desktop/Project571/sendToDropbox.py'],stdout = subprocess.PIPE, stderr = subprocess.STDOUT)
 
 def moveCenter():
 	#center
@@ -50,7 +50,7 @@ lockMotor = 0
 
 
 #clear the input
-os.system  ('clear')
+#os.system  ('clear')
 
 
 while True:
@@ -63,7 +63,7 @@ while True:
 	
 #there is some noise on the sensor, it is going to record with a filter only.
  
-	if i == 1 and filterForLeft < 2:		
+	if i == 1 and filterForLeft < 3:		
 		#print str(i) + "what"
 		filterForLeft = filterForLeft + 1
 		print "maybe i detected something on the left"
@@ -98,19 +98,24 @@ while True:
 		GPIO.output(3,0)
 		time.sleep(1)
 	
-	if filterForLeft > 1 :
+	if filterForLeft > 2 :
+		#measure time
+		start = time.time()
+		
 		print "intruder On left" , i
 		GPIO.output(3,1)
 		moveLeft()
-		#os.system("python captureImage.py") 		#this command has to wait to be finished
-		os.system('clear')							#this can be thrown as background process
+		os.system("python captureImage.py") 		#this command has to wait to be finished
+		#os.system('clear')							#this can be thrown as background process
 		avantiDropbox()
 		filterForLeft = 0
 		GPIO.output(3,0)
-		
 		lockMotor = 0
 		
-		time.sleep(2)
+		#measure time
+		end = time.time()
+		print (end - start)
+		time.sleep(10)
 		continue 		#this will analyze again the input
 		
 	if j == 0 and buttonStatus == False:
@@ -123,8 +128,8 @@ while True:
 		print "intruders On right" , j
 		GPIO.output(5,1)
 		moveRight()
-		#os.system("python captureImage.py")
-		os.system('clear')							#this can be thrown as background process
+		os.system("python captureImage.py")
+		#os.system('clear')							#this can be thrown as background process
 		avantiDropbox()
 		filterForRight = 0
 		GPIO.output(5,0)

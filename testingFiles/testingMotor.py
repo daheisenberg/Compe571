@@ -16,7 +16,7 @@ try:
 			p.ChangeDutyCycle(7.5)
 			time.sleep(1)
 			#left
-			p.ChangeDutyCycle(12.5)
+			p.ChangeDutyCycle(12)
 			time.sleep(1)
 			#right
 			p.ChangeDutyCycle(2.5)

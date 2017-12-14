@@ -26,12 +26,18 @@ print numberOfFiles
 
 newFileName = "video2Go" + numberOfFiles + ".avi"
 
+
+
 for i in xrange(1,10):
+	start = time.time()
 	#for image only
 	#call(["fswebcam", "-d", "/dev/video0", "-r", "1280x720", "--no-banner", "thefile.jpg"])
 	
 	call(["avconv", "-t", "5",  "-f",  "video4linux2" , "-i", "/dev/video0", newFileName])
-	os.system('clear')							#this can be thrown as background process	
+	#os.system('clear')							#this can be thrown as background process	
+	end = time.time()
+	print (end - start)
+	
 	time.sleep(1)
 
 
