@@ -15,3 +15,12 @@ The core theme of our project is multithreads and locking a limited
 resource (such as the rotor + the camera)
 I have mentioned all the resources i have used, most of the code was written
 from scratch but some of them are borrowed from tutorials.
+
+how to use this code:
+You just need to run the program using the following command
+
+python *program.py
+for example
+python mainFile.py
+
+this program will need to have a raspberry pi connected if not, there will be errors since you need the GPIO
